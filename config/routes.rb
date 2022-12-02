@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resource :tweets, only: [:new, :index, :show, :destroy]
+
   devise_for :users
   get '/' => 'homes#top'
   get 'homes' => 'homes#about'
