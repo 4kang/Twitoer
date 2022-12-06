@@ -1,0 +1,4 @@
+<%= @tweet.user.name %>
+<%= @tweet.body %>
+<%= image_tag @tweet.get_image %>
+<%= @tweet.created_at.strftime('%y/%m/%d') %>

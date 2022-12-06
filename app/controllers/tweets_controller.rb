@@ -8,21 +8,21 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     @tweet.save
-    redirect_to tweet_path
+    redirect_to tweets_path
   end
 
   def index
-
+    @tweets = Tweet.all
   end
 
   def show
-
+    @tweet = Tweet.find(params[:id])
   end
 
   private
 
   def tweet_params
-    params.require(:tweet).permit(:tweet, :image)
+    params.require(:tweet).permit(:body, :image)
   end
 
 end

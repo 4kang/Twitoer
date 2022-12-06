@@ -1,6 +1,6 @@
 <h1>投稿フォーム</h1>
 <%= form_with model: @tweet do |f| %>
- <%= f.text_area :tweet, autofocus: true, autocomplete: "tweets", placeholder: "いま何をしている？" %>
+ <%= f.text_area :body, autofocus: true, autocomplete: "tweets", placeholder: "いま何をしている？" %>
  <%= f.file_field :image, accept: "image/*" %>
  <%= f.submit "ツイートする" %>
 <% end %>

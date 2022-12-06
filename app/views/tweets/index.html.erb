@@ -1,0 +1,9 @@
+<% @tweets.each do |tweet| %>
+ <%= link_to tweet_path(tweet.id) do %>
+  <%= tweet.user.name %>
+  <%= time_ago_in_words(tweet.created_at) %>
+  <%= tweet.body %>
+  <%= image_tag tweet.get_image %>
+ <% end %>
+
+<% end %>
