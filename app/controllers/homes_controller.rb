@@ -3,7 +3,5 @@ class HomesController < ApplicationController
   end
 
   def about
-    @tweet = Tweet.new
-    @tweets = Tweet.all
   end
 end

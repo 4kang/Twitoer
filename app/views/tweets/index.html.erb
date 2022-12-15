@@ -1,4 +1,6 @@
-<% tweets.each do |tweet| %>
+<%= render 'tweets/new', tweet: @tweet %> <br />
+
+<% @tweets.each do |tweet| %>
  <%= link_to tweet_path(tweet.id) do %>
   <%= tweet.user.name %>
   <%= time_ago_in_words(tweet.created_at) %>
@@ -7,3 +9,8 @@
  <% end %>
 
 <% end %>
+
+<p>
+ 検索<br />
+ <%= render 'homes/about' %><br />
+</p>
