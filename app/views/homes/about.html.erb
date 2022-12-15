@@ -1,7 +1,8 @@
 <h1>ログイン後の画面</h1>
 <p>
-  投稿フォーム<br />
-  ツイート欄<br />
+  <%= render 'tweets/new', tweet: @tweet %> <br />
+  ツイート欄
+  <%= render 'tweets/index', tweets: @tweets %><br />
   検索<br />
   メニュー欄<br />
 </p>

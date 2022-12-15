@@ -1,4 +1,4 @@
-<% @tweets.each do |tweet| %>
+<% tweets.each do |tweet| %>
  <%= link_to tweet_path(tweet.id) do %>
   <%= tweet.user.name %>
   <%= time_ago_in_words(tweet.created_at) %>

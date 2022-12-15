@@ -12,6 +12,7 @@ class TweetsController < ApplicationController
   end
 
   def index
+    @tweet = Tweet.new
     @tweets = Tweet.all
   end
 
