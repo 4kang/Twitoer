@@ -11,6 +11,7 @@
  <%= time_ago_in_words(tweet.created_at) %>
  <%= tweet.body %>
  <%= image_tag tweet.get_image %>
+ 
 <% end %>
 
 <%= link_to "プロフィールを編集", edit_user_path %>

@@ -2,3 +2,6 @@
 <%= @tweet.body %>
 <%= image_tag @tweet.get_image %>
 <%= @tweet.created_at.strftime('%y/%m/%d') %>
+<% if @tweet.user == current_user %>
+ <%= link_to "削除", tweet_path(@tweet), method: :delete %>
+<% end %>
