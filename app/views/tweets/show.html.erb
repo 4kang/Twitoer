@@ -1,7 +1,18 @@
+<!--renderで投稿フォームを投下-->
+<%= render "tweets/new", tweet: @tweet %>
+
+<!--ツイート情報詳細-->
+<!--アイコン画像-->
+<%= image_tag @tweet.user.get_profile_image, size:'80x80' %>
+<!--ユーザー名-->
 <%= @tweet.user.name %>
+<!--つぶやき内容-->
 <%= @tweet.body %>
-<%= image_tag @tweet.get_image %>
+<!--画像-->
+<%= image_tag @tweet.get_image, size:'440x280' %>
+<!--投稿時間-->
 <%= @tweet.created_at.strftime('%y/%m/%d') %>
+<!--もしログインしているアカウントがこのツイートした本人だったら-->
 <% if @tweet.user == current_user %>
  <%= link_to "削除", tweet_path(@tweet), method: :delete %>
 <% end %>

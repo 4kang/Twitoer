@@ -1,17 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<%= image_tag @user.get_profile_image(100,100) %>
-<%= @user.name %>
-<%= @user.user_id %>
+<!--renderで投稿フォームを投下-->
+<%= render 'tweets/new', tweet: @tweet %>
 
 <% @tweets.each do |tweet| %>
- <%= image_tag user.get_profile_image(80,80) %>
+ <%= image_tag @user.get_profile_image, size:'80x80' %>
  <%= tweet.user.name %>
  <%= time_ago_in_words(tweet.created_at) %>
  <%= tweet.body %>
- <%= image_tag tweet.get_image %>
- 
+ <%= image_tag tweet.get_image, size:'440x280' %>
+ <p>いいね</p>
+ <p>リツイート</p>
 <% end %>
 
 <%= link_to "プロフィールを編集", edit_user_path %>
