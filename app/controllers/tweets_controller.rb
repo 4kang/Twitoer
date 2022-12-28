@@ -21,6 +21,14 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
   end
+  
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+  
+  def update
+    
+  end
 
   def destroy
     @tweet = Tweet.find(params[:id])

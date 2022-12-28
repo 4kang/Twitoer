@@ -1,7 +1,16 @@
+<p>
+ 検索<br />
+<%= link_to "ホーム", home_path %>
+話題を検索
+通知
+メッセージ
+ブックマーク
+<%= link_to "プロフィール", user_path(current_user.id) %>
+</p>
+
 <h1>投稿フォーム</h1>
 <%= form_with model: tweet do |f| %>
  <%= f.text_area :body, autofocus: true, autocomplete: "tweets", placeholder: "いま何をしている？" %>
  <%= f.file_field :image, accept: "image/*" %>
  <%= f.submit "ツイートする" %>
 <% end %>
-
