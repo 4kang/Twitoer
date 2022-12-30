@@ -10,6 +10,7 @@
  <% end %>
  <p>いいね</p>
  <p>リツイート</p>
- <%= link_to "削除", tweet_path(@tweet), method: :delete %>
+ <% if tweet.user == current_user %>
+  <%= link_to "削除", tweet_path(tweet), method: :delete %>
+ <% end %>
 <% end %>
-
