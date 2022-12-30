@@ -1,0 +1,10 @@
+<% tweets.each do |tweet| %>
+ <%= image_tag user.get_profile_image, size:'80x80' %>
+ <%= tweet.user.name %>
+ <%= time_ago_in_words(tweet.created_at) %>
+ <%= tweet.body %>
+ <%= image_tag tweet.get_image, size:'440x280' %>
+ <p>いいね</p>
+ <p>リツイート</p>
+ <%= link_to "削除", tweet_path(tweet), method: :delete %>
+<% end %>

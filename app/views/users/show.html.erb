@@ -1,5 +1,10 @@
+<!--プロフィール詳細文-->
+<% if @user == current_user %>
+ <%= link_to "プロフィールを編集", edit_user_path(@user) %>
+<% end %>
+
 <!--renderで投稿フォームを投下-->
-<%= render 'tweets/new', tweet: @tweet %>
+<%= render 'tweets/new', tweet: @new_tweet, user: @user %>
 
 <% @tweets.each do |tweet| %>
  <%= image_tag @user.get_profile_image, size:'80x80' %>
@@ -9,6 +14,5 @@
  <%= image_tag tweet.get_image, size:'440x280' %>
  <p>いいね</p>
  <p>リツイート</p>
+ <%= link_to "削除", tweet_path(@tweet), method: :delete %>
 <% end %>
-
-<%= link_to "プロフィールを編集", edit_user_path %>

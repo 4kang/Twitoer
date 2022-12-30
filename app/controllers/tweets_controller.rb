@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(created_at: :desc)
     @user = current_user
     @users = User.all
   end
@@ -21,7 +21,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
   end
-  
+
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
