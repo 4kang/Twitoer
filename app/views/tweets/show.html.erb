@@ -6,12 +6,17 @@
 <%= image_tag @tweet.user.get_profile_image, size:'80x80' %>
 <!--ユーザー名-->
 <%= @tweet.user.name %>
+<!--ユーザーID-->
+<%= @tweet.user_id %>
 <!--つぶやき内容-->
 <%= @tweet.body %>
 <!--画像-->
 <%= image_tag @tweet.get_image, size:'440x280' %>
 <!--投稿時間-->
 <%= @tweet.created_at.strftime('%y/%m/%d') %>
+
+ <%= @tweet.id %>
+ <%= render "favorites/favorite", tweet: @tweet %>
 <!--もしログインしているアカウントがこのツイートした本人だったら-->
 <% if @tweet.user == current_user %>
  <%= link_to "削除", tweet_path(@tweet), method: :delete %>
