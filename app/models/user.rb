@@ -5,7 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :tweets, dependent: :destroy
+
+        # いいね
          has_many :favorites, dependent: :destroy
+         has_many :favorited_tweets, through: :favorites, source: :tweet
+
+        # いいねしてるか否かという条件分岐のメソッド定義
+        def favorited_by?(tweet_id)
+          favorites.where(tweet_id: tweet_id).exists?
+        end
 
          has_one_attached :profile_image
 

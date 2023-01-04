@@ -15,8 +15,11 @@
 <!--投稿時間-->
 <%= @tweet.created_at.strftime('%y/%m/%d') %>
 
- <%= @tweet.id %>
- <%= render "favorites/favorite", tweet: @tweet %>
+<!--いいね-->
+<div id="favorite_<%= @tweet.id %>">
+  <%= render partial: "favorites/favorite", locals: {tweet: @tweet} %>
+</div>
+
 <!--もしログインしているアカウントがこのツイートした本人だったら-->
 <% if @tweet.user == current_user %>
  <%= link_to "削除", tweet_path(@tweet), method: :delete %>

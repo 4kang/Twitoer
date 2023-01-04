@@ -1,9 +1,13 @@
-<% if tweet.favorited_by?(current_user) %>
- <%= link_to tweet_favorites_path(tweet), method: :delete, remote: true do %>
-  ♥<%= tweet.favorites.count %>いいね
+<% if !user_signed_in? %>
+ <%= tweet.favorites.length %>
+<% elsif current_user.favorited_by?(tweet.id) %>
+ <%= link_to tweet_favorites_path(tweet, tweet.favorites), method: :delete, remote: true do %>
+  ♥
  <% end %>
+ <%= tweet.favorites.length %>
 <% else %>
  <%= link_to tweet_favorites_path(tweet), method: :post, remote: true do %>
-  ♡<%= tweet.favorites.count %>いいね
+  ♡
  <% end %>
+ <%= tweet.favorites.length %>
 <% end %>

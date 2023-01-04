@@ -10,6 +10,7 @@
   <%= image_tag tweet.get_image, size:'440x280' %>
  <% end %>
  <p>いいね</p>
+ 
  <p>リツイート</p>
  <% if tweet.user == current_user %>
   <%= link_to "削除", tweet_path(tweet), method: :delete %>
