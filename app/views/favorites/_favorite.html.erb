@@ -1,13 +1,15 @@
-<% if !user_signed_in? %>
- <%= tweet.favorites.length %>
-<% elsif current_user.favorited_by?(tweet.id) %>
- <%= link_to tweet_favorites_path(tweet, tweet.favorites), method: :delete, remote: true do %>
-  ♥
+<% if user_signed_in? %>
+ <% if tweet.favorited_by?(current_user) %>
+  <%= link_to tweet_favorites_path(tweet), method: :delete, remote: true do %>
+   <i class="fas fa-heart"></i>
+  <% end %>
+ <% else %>
+  <%= link_to tweet_favorites_path(tweet), method: :post, remote: true do %>
+   <i class="far fa-heart"></i>
+  <% end %>
  <% end %>
- <%= tweet.favorites.length %>
 <% else %>
- <%= link_to tweet_favorites_path(tweet), method: :post, remote: true do %>
-  ♡
+ <%= link_to new_user_session_path do %>
+  <i class="far fa-heart"></i>
  <% end %>
- <%= tweet.favorites.length %>
 <% end %>

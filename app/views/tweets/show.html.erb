@@ -17,7 +17,7 @@
 
 <!--いいね-->
 <div id="favorite_<%= @tweet.id %>">
-  <%= render partial: "favorites/favorite", locals: {tweet: @tweet} %>
+  <%= render "favorites/favorite", tweet: @tweet %>
 </div>
 
 <!--もしログインしているアカウントがこのツイートした本人だったら-->

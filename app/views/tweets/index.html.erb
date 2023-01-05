@@ -1,7 +1,7 @@
 <%= render 'tweets/new', tweet: @tweet %> <br />
 
 <% @tweets.each do |tweet| %>
- <%= link_to tweet_path(tweet.id) do %>
+ <%= link_to tweet_path(@tweet.id) do %>
   <%= image_tag @user.get_profile_image, size:'80x80' %>
   <%= tweet.user.name %>
   <%= tweet.user_id %>
@@ -10,7 +10,9 @@
   <%= image_tag tweet.get_image, size:'440x280' %>
  <% end %>
  <p>いいね</p>
- 
+ <div id="favorite_<%= @tweet.id %>">
+  <%= render 'favorites/favorite', tweet: @tweet %>
+ </div>
  <p>リツイート</p>
  <% if tweet.user == current_user %>
   <%= link_to "削除", tweet_path(tweet), method: :delete %>
