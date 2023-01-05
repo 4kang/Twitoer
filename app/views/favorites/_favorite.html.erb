@@ -7,6 +7,7 @@
  <% else %>
   <%= link_to tweet_favorites_path(tweet), method: :post, remote: true do %>
    <i class="far fa-heart"></i>
+   <%= tweet.favorites.count %>
   <% end %>
  <% end %>
 <% else %>

@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     @tweet.save
-    redirect_to home_path
+    redirect_to tweets_path
   end
 
   def index
@@ -25,7 +25,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    redirect_to  home_path
+    redirect_to  tweets_path
   end
 
   private
